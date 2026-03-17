@@ -3,7 +3,7 @@ import sys
 import os
 
 st.set_page_config(
-    page_title="SmartQueue AI - Hospital Management",
+    page_title="Arogya Ai - Hospital Management",
     page_icon="🏥",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -39,10 +39,10 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.markdown("<h1 class='main-header'>🏥 SmartQueue AI System</h1>", unsafe_allow_html=True)
+st.markdown("<h1 class='main-header'>🏥 Arogya Ai System</h1>", unsafe_allow_html=True)
 
 st.markdown("""
-### Welcome to SmartQueue AI (Production Build)
+### Welcome to Arogya Ai (Production Build)
 An intelligent hospital management system that accompanies the patient from entry to recovery using minimal input.
 
 **Navigation:**

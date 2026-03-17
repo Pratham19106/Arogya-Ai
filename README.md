@@ -1,4 +1,4 @@
-# SmartQueue AI 
+# Arogya Ai 
 
 An intelligent hospital management system that accompanies the patient from entry to recovery using minimal input (receptionist + WhatsApp interaction). 
 Designed as a fully functional, production-ready system.
@@ -29,7 +29,7 @@ Designed as a fully functional, production-ready system.
 
 Ensure you have Python 3.8+ installed.
 
-### Setup Instructions
+### Welcome to Arogya Ai (Production Build)
 
 1. **Install Dependencies**
 
@@ -47,7 +47,7 @@ Ensure you have Python 3.8+ installed.
    API_URL=http://localhost:8000/api
    
    # Database Configuration
-   DATABASE_URL=sqlite:///./smartqueue.db
+   DATABASE_URL=sqlite:///./arogya.db
    
    # Twilio Credentials
    TWILIO_ACCOUNT_SID=your_sid

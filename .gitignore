@@ -155,7 +155,7 @@ cython_debug/
 .vscode/
 
 # Project specific
-smartqueue.db
+arogya.db
 ml/forecast_models/
 ml/triage_model.pkl
 ml/historical_patients.csv
