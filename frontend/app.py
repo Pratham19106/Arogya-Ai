@@ -9,19 +9,24 @@ import requests
 def start_backend():
     try:
         # Check if backend is already running
-        requests.get("http://localhost:8000/")
+        requests.get("http://localhost:8000/", timeout=1)
     except:
         # Start if not running
-        with st.spinner("Starting Arogya Ai Backend..."):
-            subprocess.Popen([
-                sys.executable, "-m", "uvicorn", 
-                "backend.main:app", "--host", "0.0.0.0", "--port", "8000"
-            ])
+        with st.spinner("Starting Arogya Ai Backend... (This may take up to 20 seconds)"):
+            env = os.environ.copy()
+            # Run detached so it doesn't block Streamlit
+            subprocess.Popen(
+                [sys.executable, "-m", "uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"],
+                env=env,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL
+            )
             # Wait for it to spin up
-            for _ in range(10):
+            for i in range(25):
                 try:
-                    requests.get("http://localhost:8000/")
-                    break
+                    res = requests.get("http://localhost:8000/", timeout=2)
+                    if res.status_code == 200:
+                        break
                 except:
                     time.sleep(1)
 
