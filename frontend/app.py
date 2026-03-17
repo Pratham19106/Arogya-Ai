@@ -1,6 +1,34 @@
 import streamlit as st
 import sys
 import os
+import subprocess
+import time
+import requests
+
+# Background process to run FastAPI
+def start_backend():
+    try:
+        # Check if backend is already running
+        requests.get("http://localhost:8000/")
+    except:
+        # Start if not running
+        with st.spinner("Starting Arogya Ai Backend..."):
+            subprocess.Popen([
+                sys.executable, "-m", "uvicorn", 
+                "backend.main:app", "--host", "0.0.0.0", "--port", "8000"
+            ])
+            # Wait for it to spin up
+            for _ in range(10):
+                try:
+                    requests.get("http://localhost:8000/")
+                    break
+                except:
+                    time.sleep(1)
+
+# Initialize backend on startup
+if "backend_started" not in st.session_state:
+    start_backend()
+    st.session_state["backend_started"] = True
 
 st.set_page_config(
     page_title="Arogya Ai - Hospital Management",

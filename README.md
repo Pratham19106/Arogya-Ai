@@ -74,8 +74,39 @@ Ensure you have Python 3.8+ installed.
    ```
    *The UI will be available at `http://localhost:8501`*
 
-## Usage Flow
+## Deployment to Streamlit Cloud
 
-1. **Receptionist Interface**: Enter patient details and complaint. Submitting triggers the NLP engine via the backend to categorize priority, add to the DB, and dispatch a WhatsApp message.
-2. **Admin Dashboard**: View the live queue dynamically sorted by queue score and priority. Unload patients using the Discharge action. Check Prophet staffing forecasts and monitor post-discharge recovery statuses.
-3. **Patient Simulator**: Enter a phone number for a discharged patient and simulate a WhatsApp response to see the admin dashboard update in real-time, simulating Twilio inbound webhooks.
+Since this project uses a FastAPI backend, it has been configured as a **monolithic app** for easy deployment on Streamlit Cloud.
+
+### 1. Push to GitHub
+Ensure all your changes are pushed to your GitHub repository:
+```bash
+git add .
+git commit -m "Deployment ready: Monolithic build"
+git push origin main
+```
+
+### 2. Configure Streamlit Cloud Secrets
+In your Streamlit Cloud dashboard:
+1. Go to **Settings > Secrets**.
+2. Copy and paste the contents of your local `.env` file into the Secrets box in **TOML** format:
+   
+   ```toml
+   # API_URL is handled automatically by the monolithic launcher, 
+   # but other vars should be defined here:
+   DATABASE_URL = "sqlite:///./arogya.db"
+   TWILIO_ACCOUNT_SID = "your_sid"
+   TWILIO_AUTH_TOKEN = "your_token"
+   TWILIO_PHONE_NUMBER = "whatsapp:+14155238886"
+   DOCTOR_PHONE_NUMBER = "whatsapp:+918999025726"
+   FOLLOWUP_TEMPLATE_SID = ""
+   ```
+
+### 3. Deploy
+1. Click **New App** on Streamlit Cloud.
+2. Select your repository and the `frontend/app.py` file as the main file.
+3. The app will automatically start the FastAPI backend in the background on startup.
+
+---
+
+*Arogya Ai - Production Ready Hospital Management.*

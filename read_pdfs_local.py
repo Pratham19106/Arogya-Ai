@@ -19,4 +19,4 @@ if __name__ == "__main__":
     if os.path.exists("pdf_out.txt"):
         os.remove("pdf_out.txt")
     read_pdf(r"d:\mum_hacks practice\New folder\recursion 7.0 ppt.pdf")
-    read_pdf(r"d:\mum_hacks practice\New folder\SmartQueue_AI_Project_Brief_v2.pdf")
+    read_pdf(r"d:\mum_hacks practice\New folder\Arogya_Ai_Project_Brief_v2.pdf")
