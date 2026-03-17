@@ -1,4 +1,4 @@
-# Arogya Ai 
+# Arogya AI 
 
 An intelligent hospital management system that accompanies the patient from entry to recovery using minimal input (receptionist + WhatsApp interaction). 
 Designed as a fully functional, production-ready system.
