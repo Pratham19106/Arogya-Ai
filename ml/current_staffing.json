@@ -1,0 +1,22 @@
+{
+    "Emergency": {
+        "doctors": 2,
+        "nurses": 8
+    },
+    "General Ward": {
+        "doctors": 4,
+        "nurses": 4
+    },
+    "ICU": {
+        "doctors": 2,
+        "nurses": 3
+    },
+    "Pediatrics": {
+        "doctors": 2,
+        "nurses": 3
+    },
+    "Orthopedics": {
+        "doctors": 1,
+        "nurses": 2
+    }
+}

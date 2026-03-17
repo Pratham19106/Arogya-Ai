@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+streamlit
+pandas
+scikit-learn
+pydantic
+sqlalchemy
+prophet
+twilio
+spacy
+python-dotenv
+python-multipart
